@@ -14,8 +14,7 @@ const Navbar = () => {
     }
 
     return (
-        <div
-            className="fixed top-0 h-screen w-20 m-0
+        <div className="fixed top-0 h-screen w-20 m-0 justify-center
                        flex flex-col bg-lightGrey text-white"
         >
             <Link to="/">
