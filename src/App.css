@@ -25,3 +25,22 @@
 * {
     font-family: "DMSans-Medium", serif;
 }
+
+@layer components {
+    .sidebar-icon {
+        @apply relative flex items-center 
+            justify-center h-12 w-12 mt-2 mb-2 p-1
+            mx-auto bg-light text-purple
+            hover:bg-purple hover:text-light
+            rounded-3xl hover:rounded-xl
+            transition-all duration-200 ease-linear
+            cursor-pointer;
+    }
+
+    .sidebar-tooltip {
+        @apply absolute w-auto p-2 m-2 min-w-max left-16
+            rounded-md shadow-md
+            bg-light text-sm text-purple
+            transition-all duration-100 scale-0 origin-left;
+    }
+}
