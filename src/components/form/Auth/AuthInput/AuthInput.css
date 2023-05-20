@@ -1,0 +1,12 @@
+.authInput {
+    border: 1px solid black;
+}
+
+.authInputIcon {
+    color: #a7a7a7;
+    margin-right: 10px;
+}
+
+.authInput input:focus {
+    outline: none;
+}

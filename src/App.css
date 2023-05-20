@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "DMSans-Regular";
+    src: url("assets/fonts/DMSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "DMSans-Medium";
+    src: url("assets/fonts/DMSans-Medium.ttf");
+}
+
+@font-face {
+    font-family: "DMSans-Bold";
+    src: url("assets/fonts/DMSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "ArchivoBlack-Regular";
+    src: url("assets/fonts/ArchivoBlack-Regular.ttf");
+}
+
+* {
+    font-family: "DMSans-Medium", serif;
+}
