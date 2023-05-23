@@ -57,7 +57,11 @@ const LoginPage = () => {
                         <img className="w-20" src={Logo} alt="logo_img"/>
 
                         <div className={hideForm ? `block` : 'hidden'}>
-                            <Lottie animationData={CheckAnimation} />
+                            <Lottie
+                                animationData={CheckAnimation}
+                                autoplay={true}
+                                loop={true}
+                            />
                         </div>
 
                         <div className={hideForm ? `hidden` : 'block w-full'}>
