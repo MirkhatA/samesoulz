@@ -2,7 +2,7 @@ import "./ProfileSaveBtn.css";
 
 const ProfileSaveBtn = () => {
     return (
-        <button className="mt-2 border w-full p-2 rounded-lg button-87 w-24">
+        <button className="mt-2 border p-2 rounded-lg button-87 w-full">
             Save
         </button>
     );

@@ -139,7 +139,7 @@ const ProfilePage = () => {
             <div className="flex w-full justify-center">
                 <div className={`${hideForm ? `block` : 'hidden'} flex flex-col items-center justify-center`}>
                     <Lottie
-                        className="w-2/5"
+                        className="w-52"
                         animationData={CheckAnimation}
                         autoplay={true}
                         loop={true}
@@ -148,8 +148,14 @@ const ProfilePage = () => {
 
                 <div className={`inline-block m-10 ${hideForm ? 'hidden' : 'block'}`}>
                     <form onSubmit={onSubmit}>
-                        <div className="flex justify-between">
-                            <div className="w-1/5">
+                        <div className="
+                        xl:flex justify-between
+                        lg:flex-nowrap
+                        ">
+                            <div className="
+                            xl:w-1/3
+                            lg:w-full mr-2
+                            ">
                                 <p className="welcomePageTitle text-xl mb-5">
                                     Profile
                                 </p>
@@ -210,8 +216,10 @@ const ProfilePage = () => {
                                     onChange={onChange}
                                     value={formData.bio}
                                 />
+                                <ProfileSaveBtn/>
+
                             </div>
-                            <div className="ml-4 w-2/3">
+                            <div className="xl:ml-4 w-2/3 w-full">
                                 <p className="welcomePageTitle text-xl">
                                     Interests
                                 </p>
@@ -225,7 +233,6 @@ const ProfilePage = () => {
                                 </div>
                             </div>
                         </div>
-                        <ProfileSaveBtn/>
                     </form>
                 </div>
             </div>
