@@ -1,6 +1,7 @@
 import { FiLogIn } from "react-icons/fi";
 
 import "./AuthButton.css";
+import PropTypes from "prop-types";
 
 const AuthButton = (props) => {
     const { value } = props;
@@ -15,5 +16,9 @@ const AuthButton = (props) => {
         </button>
     );
 };
+
+AuthButton.propType = {
+    value: PropTypes.string,
+}
 
 export default AuthButton;

@@ -36,7 +36,7 @@ const LoginPage = () => {
 
                 setHideForm(true)
 
-                setTimeout(() => window.location.replace("/"), 800);
+                setTimeout(() => window.location.replace("/"), 1000);
 
             })
             .catch(() => {
