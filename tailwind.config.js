@@ -10,6 +10,7 @@ export default {
             grey: "#CCCCCC",
             lightGrey: "#F6F6F6",
             light: "#fff",
+            black: "#2D2D2D",
         },
     },
     plugins: [],

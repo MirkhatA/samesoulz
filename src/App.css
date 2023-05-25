@@ -26,9 +26,14 @@
     font-family: "DMSans-Medium", serif;
 }
 
+.active-button:hover {
+    background: #2D2D2D;
+    transition: 0.3s;
+}
+
 @layer components {
     .sidebar-icon {
-        @apply relative flex items-center 
+        @apply relative flex items-center
             justify-center h-12 w-12 mt-2 mb-2 p-1
             mx-auto bg-light text-purple
             hover:bg-purple hover:text-light

@@ -19,9 +19,9 @@ export const login = async (user) => {
 
 export const getUserData = async (username) => {
     return await axios.get(`${baseUrl}/profiles/${username}`, {
-        headers
+        headers,
     });
-}
+};
 
 export const updateUser = async (user) => {
     return await axios.post(
@@ -43,10 +43,13 @@ export const updateUser = async (user) => {
 };
 
 export const updateProfilePicture = async (pic) => {
-    return await axios.post(
-        `${baseUrl}/images/${uuid}/add/avatar`,
-        {
-            image: pic
-        }
-    )
-}
+    return await axios.post(`${baseUrl}/images/${uuid}/add/avatar`, {
+        image: pic,
+    });
+};
+
+export const getReccomendedUsers = async (username) => {
+    return await axios.get(`${baseUrl}/profiles/recommend/${username}`, {
+        headers,
+    });
+};

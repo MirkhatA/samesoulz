@@ -10,7 +10,7 @@ import {
     deleteAllInterests,
     addInterestList,
 } from "../../api/InterestAPI.jsx";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import InterestBtn from "../../components/form/Profile/InterestBtn/InterestBtn.jsx";
 import {
     updateUser,
@@ -44,10 +44,9 @@ const ProfilePage = () => {
     const [arr, setArr] = useState([]);
     const [hideForm, setHideForm] = useState(false);
 
-
     const onChange = (e) => {
-        const {name, value} = e.target;
-        setData({...formData, [name]: value});
+        const { name, value } = e.target;
+        setData({ ...formData, [name]: value });
     };
 
     const interests = interestList.map((interest) => (
@@ -93,23 +92,20 @@ const ProfilePage = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        ``;
 
         // updateProfilePicture(formData.picture)
         //     .then((res) => console.log("Update profile pic: " + res.status))
         //     .catch((err) => console.log(err));
 
         try {
-            deleteAllInterests(
-                formData.username,
-                pickedInterestList
-            )
-                .then((res) => console.log("Delete all interests: " + res.status))
+            deleteAllInterests(formData.username, pickedInterestList)
+                .then((res) =>
+                    console.log("Delete all interests: " + res.status)
+                )
                 .catch((err) => console.log(err.message));
 
-            addInterestList(
-                formData.username,
-                pickedInterestList
-            )
+            addInterestList(formData.username, pickedInterestList)
                 .then((res) => console.log("Add all interests: " + res.status))
                 .catch((err) => console.log(err.message));
 
@@ -122,7 +118,7 @@ const ProfilePage = () => {
                     console.log(err);
                 });
 
-            setHideForm(true)
+            setHideForm(true);
 
             setTimeout(() => window.location.replace("/profile"), 1000);
 
@@ -134,10 +130,14 @@ const ProfilePage = () => {
 
     return (
         <div className="flex">
-            <Navbar/>
+            <Navbar />
 
             <div className="flex w-full justify-center">
-                <div className={`${hideForm ? `block` : 'hidden'} flex flex-col items-center justify-center`}>
+                <div
+                    className={`${
+                        hideForm ? `block` : "hidden"
+                    } flex flex-col items-center justify-center`}
+                >
                     <Lottie
                         className="w-52"
                         animationData={CheckAnimation}
@@ -146,16 +146,24 @@ const ProfilePage = () => {
                     />
                 </div>
 
-                <div className={`inline-block m-10 ${hideForm ? 'hidden' : 'block'}`}>
+                <div
+                    className={`inline-block m-10 ${
+                        hideForm ? "hidden" : "block"
+                    }`}
+                >
                     <form onSubmit={onSubmit}>
-                        <div className="
+                        <div
+                            className="
                         xl:flex justify-between
                         lg:flex-nowrap
-                        ">
-                            <div className="
+                        "
+                        >
+                            <div
+                                className="
                             xl:w-1/3
                             lg:w-full mr-2
-                            ">
+                            "
+                            >
                                 <p className="welcomePageTitle text-xl mb-5">
                                     Profile
                                 </p>
@@ -216,8 +224,7 @@ const ProfilePage = () => {
                                     onChange={onChange}
                                     value={formData.bio}
                                 />
-                                <ProfileSaveBtn/>
-
+                                <ProfileSaveBtn />
                             </div>
                             <div className="xl:ml-4 w-2/3 w-full">
                                 <p className="welcomePageTitle text-xl">

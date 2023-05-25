@@ -11,7 +11,7 @@ const InterestBtn = (props) => {
     const [checked, setChecked] = useState(isChecked);
 
     return (
-        <label className={`${checked ? `bg-purple` : `bg-white`} ease-in duration-100 cursor-pointer border rounded mr-2 mb-2 mt-1 p-3`}>
+        <label className={`${checked ? `bg-purple` : `bg-white`} border-2 ease-in duration-100 cursor-pointer border rounded mr-2 mb-2 mt-1 p-3`}>
             <input
                 className="hidden"
                 type="checkbox"
