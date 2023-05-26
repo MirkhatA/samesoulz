@@ -6,7 +6,7 @@ const SuggestionBtn = (props) => {
     return (
         <button
             onClick={onClick}
-            className={`bg-white rounded mr-1 mt-2 border-2 border-${color} p-2 hover:bg-${color} hover:text-light hover:border-black`}
+            className={`transition bg-white rounded mr-1 mt-2 border-2 border-${color} p-2 hover:bg-${color} hover:text-light hover:border-black`}
         >
             {value}
         </button>

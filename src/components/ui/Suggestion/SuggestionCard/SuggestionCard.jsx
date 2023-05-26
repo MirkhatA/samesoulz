@@ -37,7 +37,7 @@ const SuggestionCard = (props) => {
                     <SuggestionBtn
                         value="Skip"
                         color="black"
-                        onClick={() => console.log("skip")}
+                        onClick={props.skip}
                     />
                 </div>
             </div>
