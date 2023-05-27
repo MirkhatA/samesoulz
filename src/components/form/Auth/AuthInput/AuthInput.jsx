@@ -16,7 +16,7 @@ const AuthInput = (props) => {
             border-2 border-grey rounded w-full my-1"
         >
             <TbEdit className="authInputIcon"/>
-            <input name={name} className="w-full" type={type} placeholder={placeholder} onChange={onChange}/>
+            <input name={name} className="w-full" type={type} placeholder={placeholder} onChange={onChange} required/>
         </label>
     );
 };

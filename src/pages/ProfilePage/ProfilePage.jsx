@@ -73,11 +73,11 @@ const ProfilePage = () => {
                 ...formData,
                 firstName: res.data.firstName.toString(),
                 lastName: res.data.lastName.toString(),
-                gender: res.data.gender.toString(),
-                age: res.data.age.toString(),
+                gender: res.data.gender !== null ? res.data.gender.toString() : "Male",
+                age: res.data.age !== null ? res.data.age.toString() : "18",
                 username: localStorage.getItem("username"),
-                location: res.data.location.toString(),
-                bio: res.data.bio.toString(),
+                location: res.data.location !== null ? res.data.location.toString() : "Astana",
+                bio: res.data.bio !== null ? res.data.bio.toString() : "",
             });
         });
 

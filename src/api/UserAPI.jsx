@@ -17,6 +17,16 @@ export const login = async (user) => {
     });
 };
 
+export const register = async (user) => {
+    return await axios.post(`${baseUrl}/register`, {
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        password: user.password,
+        username: user.username,
+    })
+}
+
 export const getUserData = async (username) => {
     return await axios.get(`${baseUrl}/profiles/${username}`, {
         headers,
