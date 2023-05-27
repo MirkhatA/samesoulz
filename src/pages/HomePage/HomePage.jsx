@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Navbar from "../../components/ui/Navbar/Navbar.jsx";
 
-import {getReccomendedUsers} from "../../api/UserAPI.jsx";
+import {getRecommendedUsers} from "../../api/UserAPI.jsx";
 import SuggestionCard from "../../components/ui/Suggestion/SuggestionCard/SuggestionCard.jsx";
 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
     const [currentUser, setCurrentUser] = useState([]);
 
     useEffect(() => {
-        getReccomendedUsers(localStorage.getItem("username")).then((res) =>
+        getRecommendedUsers(localStorage.getItem("username")).then((res) =>
             setSuggestedUsers(res.data)
         );
     }, []);

@@ -1,12 +1,25 @@
 import PropTypes from "prop-types";
 import SuggestionBtn from "../SuggestionBtn/SuggestionBtn.jsx";
+import {useEffect, useState} from "react";
+import {getIsRequestSent, removeRequest, sendRequestToFriend} from "../../../../api/UserAPI.jsx";
 
 const SuggestionCard = (props) => {
-    const {user} = props;
+    const {
+        user,
+        skip,
+    } = props;
+
+    const [isFriend, setIsFriend] = useState(false);
 
     const interests = user.interests.map((interest) =>
         <span key={interest.id}>{interest.name}, </span>
     );
+
+    useEffect(() => {
+        getIsRequestSent(user.uuid).then(res => setIsFriend(res.data));
+    }, [user]);
+
+    console.log(isFriend);
 
     return (
         <div className="bg-lightGrey border-grey rounded lg:flex m-2">
@@ -24,20 +37,29 @@ const SuggestionCard = (props) => {
                 </p>
                 <br/>
                 <p>{user.bio}</p>
-
                 <p className="text-sm mt-5">Interested in:</p>
                 <p>{interests}</p>
-
                 <div>
-                    <SuggestionBtn
-                        value="Request"
-                        color="purple"
-                        onClick={() => console.log("request")}
-                    />
+                    {!isFriend &&
+                        <SuggestionBtn
+                            value="Request"
+                            color="purple"
+                            onClick={() => sendRequestToFriend(user.uuid).then(() => setIsFriend(true))}
+                        />
+                    }
+
+                    {isFriend &&
+                        <SuggestionBtn
+                            value="Remove request"
+                            color="purple"
+                            onClick={() => removeRequest(user.uuid).then(() => setIsFriend(false))}
+                        />
+                    }
+
                     <SuggestionBtn
                         value="Skip"
                         color="black"
-                        onClick={props.skip}
+                        onClick={skip}
                     />
                 </div>
             </div>
@@ -47,6 +69,7 @@ const SuggestionCard = (props) => {
 
 SuggestionCard.propTypes = {
     user: PropTypes.object,
+    skip: PropTypes.func,
 };
 
 export default SuggestionCard;

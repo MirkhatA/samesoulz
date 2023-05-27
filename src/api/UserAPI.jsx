@@ -48,8 +48,25 @@ export const updateProfilePicture = async (pic) => {
     });
 };
 
-export const getReccomendedUsers = async (username) => {
+export const getRecommendedUsers = async (username) => {
     return await axios.get(`${baseUrl}/profiles/recommend/${username}`, {
         headers,
     });
 };
+
+export const sendRequestToFriend = async (targetId) => {
+    return await axios.post(`${baseUrl}/profiles/send/${uuid}/to/${targetId}`,
+        {},
+        {headers: headers})
+}
+
+export const getIsRequestSent = async (targetId) => {
+    return await axios.get(`${baseUrl}/profiles/check/request/${uuid}/${targetId}`,
+        {headers:headers})
+}
+
+export const removeRequest = async (targetId) => {
+    return await axios.post(`${baseUrl}/profiles/remove/request/${uuid}/to/${targetId}`,
+        {},
+        {headers:headers})
+}
