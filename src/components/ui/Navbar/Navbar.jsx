@@ -6,10 +6,12 @@ import { BiMessageAltDetail } from "react-icons/bi";
 import { CgLogOut } from "react-icons/cg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import {disconnect} from "../../../api/NotificationsAPI.jsx";
 
 const Navbar = () => {
     const leave = () => {
         localStorage.clear();
+        disconnect();
         window.location.replace("/");
     };
 

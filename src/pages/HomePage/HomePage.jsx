@@ -3,15 +3,25 @@ import Navbar from "../../components/ui/Navbar/Navbar.jsx";
 
 import {getRecommendedUsers} from "../../api/UserAPI.jsx";
 import SuggestionCard from "../../components/ui/Suggestion/SuggestionCard/SuggestionCard.jsx";
+import {connect} from "../../api/NotificationsAPI.jsx";
 
 const HomePage = () => {
     const [suggestedUsers, setSuggestedUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState([]);
 
     useEffect(() => {
-        getRecommendedUsers(localStorage.getItem("username")).then((res) =>
-            setSuggestedUsers(res.data)
-        );
+        try {
+            // if (localStorage.getItem("isConnected") !== "true") {
+                connect();
+                // localStorage.setItem("isConnected", "true")
+            // }
+
+            getRecommendedUsers(localStorage.getItem("username")).then((res) =>
+                setSuggestedUsers(res.data)
+            );
+        } catch (err) {
+            console.log(err.data);
+        }
     }, []);
 
     const userList = suggestedUsers.map((user) => (

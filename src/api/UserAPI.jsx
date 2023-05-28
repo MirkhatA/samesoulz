@@ -58,6 +58,8 @@ export const updateProfilePicture = async (pic) => {
     });
 };
 
+// http://localhost:8080/api/v1/images/{uuid}/add/avatar
+
 export const getRecommendedUsers = async (username) => {
     return await axios.get(`${baseUrl}/profiles/recommend/${username}`, {
         headers,
@@ -72,26 +74,38 @@ export const sendRequestToFriend = async (targetId) => {
 
 export const getIsRequestSent = async (targetId) => {
     return await axios.get(`${baseUrl}/profiles/check/request/${uuid}/${targetId}`,
-        {headers:headers})
+        {headers: headers})
 }
 
 export const removeRequest = async (targetId) => {
     return await axios.post(`${baseUrl}/profiles/remove/request/${uuid}/to/${targetId}`,
         {},
-        {headers:headers})
+        {headers: headers})
 }
 
 export const getAllRequests = async () => {
     return await axios.get(`${baseUrl}/profiles/requests/to/${uuid}`,
-        {headers:headers})
+        {headers: headers})
 }
 
 export const getAllFriends = async () => {
     return await axios.get(`${baseUrl}/profiles/friends/${uuid}`,
-        {headers:headers})
+        {headers: headers})
 }
 
-export const getAllRequestsToMe = async () => {
+export const getAllRequestsFromMe = async () => {
     return await axios.get(`${baseUrl}/profiles/requests/from/${uuid}`,
-        {headers:headers})
+        {headers: headers})
+}
+
+export const acceptRequest = async (targetId) => {
+    return await axios.post(`${baseUrl}/profiles/accept/${uuid}/to/${targetId}`,
+        {},
+        {headers: headers})
+}
+
+export const deleteFriend = async (targetId) => {
+    return await axios.post(`${baseUrl}/profiles/remove/friend/${uuid}/to/${targetId}`,
+        {},
+        {headers: headers})
 }

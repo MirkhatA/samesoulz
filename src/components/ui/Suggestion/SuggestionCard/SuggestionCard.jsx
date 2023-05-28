@@ -19,8 +19,6 @@ const SuggestionCard = (props) => {
         getIsRequestSent(user.uuid).then(res => setIsFriend(res.data));
     }, [user]);
 
-    console.log(isFriend);
-
     return (
         <div className="bg-lightGrey border-grey rounded lg:flex m-2">
             <div className=" md:w-96 w-80 h-80">img</div>

@@ -9,6 +9,7 @@ import AuthButton from "../../components/form/Auth/AuthButton/AuthButton";
 import CheckAnimation from "../../assets/gifs/check.json";
 
 import {login} from "../../api/UserAPI.jsx";
+import {connect} from "../../api/NotificationsAPI.jsx";
 
 const LoginPage = () => {
     const initialState = {
@@ -28,6 +29,8 @@ const LoginPage = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        localStorage.setItem("isConnected", "false");
+
         login(formData)
             .then((res) => {
                 localStorage.setItem("uuid", res.data.uuid);
@@ -37,7 +40,6 @@ const LoginPage = () => {
                 setHideForm(true)
 
                 setTimeout(() => window.location.replace("/"), 1000);
-
             })
             .catch(() => {
                 setErr("Wrong email or password");
