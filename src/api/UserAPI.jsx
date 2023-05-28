@@ -80,3 +80,18 @@ export const removeRequest = async (targetId) => {
         {},
         {headers:headers})
 }
+
+export const getAllRequests = async () => {
+    return await axios.get(`${baseUrl}/profiles/requests/to/${uuid}`,
+        {headers:headers})
+}
+
+export const getAllFriends = async () => {
+    return await axios.get(`${baseUrl}/profiles/friends/${uuid}`,
+        {headers:headers})
+}
+
+export const getAllRequestsToMe = async () => {
+    return await axios.get(`${baseUrl}/profiles/requests/from/${uuid}`,
+        {headers:headers})
+}

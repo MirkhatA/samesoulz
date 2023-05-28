@@ -10,7 +10,7 @@ import {
     deleteAllInterests,
     addInterestList,
 } from "../../api/InterestAPI.jsx";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import InterestBtn from "../../components/form/Profile/InterestBtn/InterestBtn.jsx";
 import {
     updateUser,
@@ -45,8 +45,8 @@ const ProfilePage = () => {
     const [hideForm, setHideForm] = useState(false);
 
     const onChange = (e) => {
-        const { name, value } = e.target;
-        setData({ ...formData, [name]: value });
+        const {name, value} = e.target;
+        setData({...formData, [name]: value});
     };
 
     const interests = interestList.map((interest) => (
@@ -127,120 +127,112 @@ const ProfilePage = () => {
             console.log(err);
         }
     };
-
+    // lg:flex
     return (
         <div className="flex">
-            <Navbar />
+            <Navbar/>
 
             <div className="flex w-full justify-center">
-                <div
-                    className={`${
-                        hideForm ? `block` : "hidden"
-                    } flex flex-col items-center justify-center`}
-                >
-                    <Lottie
-                        className="w-52"
-                        animationData={CheckAnimation}
-                        autoplay={true}
-                        loop={true}
-                    />
-                </div>
+                <div className="lg:w-9/12 w-full">
+                    <div
+                        className={`${
+                            hideForm ? `block` : "hidden"
+                        } flex flex-col items-center justify-center`}
+                    >
+                        <Lottie
+                            className="w-52"
+                            animationData={CheckAnimation}
+                            autoplay={true}
+                            loop={true}
+                        />
+                    </div>
 
-                <div
-                    className={`inline-block m-10 ${
-                        hideForm ? "hidden" : "block"
-                    }`}
-                >
-                    <form onSubmit={onSubmit}>
-                        <div
-                            className="
-                        xl:flex justify-between
-                        lg:flex-nowrap
-                        "
-                        >
-                            <div
-                                className="
-                            xl:w-1/3
-                            lg:w-full mr-2
-                            "
-                            >
-                                <p className="welcomePageTitle text-xl mb-5">
-                                    Profile
-                                </p>
-                                {/*<ProfilePictureInput*/}
-                                {/*    onChange={onChange}*/}
-                                {/*/>*/}
-                                <ProfileInput
-                                    title="Avatar"
-                                    name="picture"
-                                    type="file"
-                                    onChange={onChange}
-                                />
+                    <div
+                        className={`inline-block m-10 ${
+                            hideForm ? "hidden" : "block"
+                        }`}
+                    >
+                        <form onSubmit={onSubmit}>
+                            <div className="xl:flex justify-between lg:flex-nowrap">
+                                <div className="xl:w-1/3 lg:w-full mr-2">
+                                    <p className="welcomePageTitle text-xl mb-5">
+                                        Profile
+                                    </p>
+                                    {/*<ProfilePictureInput*/}
+                                    {/*    onChange={onChange}*/}
+                                    {/*/>*/}
+                                    <ProfileInput
+                                        title="Avatar"
+                                        name="picture"
+                                        type="file"
+                                        onChange={onChange}
+                                    />
 
-                                <ProfileInput
-                                    title="First name"
-                                    name="firstName"
-                                    type="text"
-                                    onChange={onChange}
-                                    value={formData.firstName}
-                                />
-                                <ProfileInput
-                                    title="Last name"
-                                    name="lastName"
-                                    type="text"
-                                    onChange={onChange}
-                                    value={formData.lastName}
-                                />
-                                <ProfileRadio
-                                    title="Gender"
-                                    name="gender"
-                                    onChange={onChange}
-                                    value={formData.gender}
-                                />
-                                <ProfileInput
-                                    title="Age"
-                                    name="age"
-                                    type="number"
-                                    onChange={onChange}
-                                    value={formData.age}
-                                />
-                                <ProfileInput
-                                    title="Username"
-                                    name="username"
-                                    type="text"
-                                    onChange={onChange}
-                                    value={formData.username}
-                                />
-                                <ProfileInput
-                                    title="Location"
-                                    name="location"
-                                    type="text"
-                                    onChange={onChange}
-                                    value={formData.location}
-                                />
-                                <ProfileTextarea
-                                    title="About me"
-                                    name="bio"
-                                    onChange={onChange}
-                                    value={formData.bio}
-                                />
-                                <ProfileSaveBtn />
-                            </div>
-                            <div className="xl:ml-4 w-2/3 w-full">
-                                <p className="welcomePageTitle text-xl">
-                                    Interests
-                                </p>
-                                <p className="my-2">
-                                    The selection of people will be for your
-                                    interests and hobbies, so choose carefully
-                                </p>
+                                    <ProfileInput
+                                        title="First name"
+                                        name="firstName"
+                                        type="text"
+                                        onChange={onChange}
+                                        value={formData.firstName}
+                                    />
+                                    <ProfileInput
+                                        title="Last name"
+                                        name="lastName"
+                                        type="text"
+                                        onChange={onChange}
+                                        value={formData.lastName}
+                                    />
+                                    <ProfileRadio
+                                        title="Gender"
+                                        name="gender"
+                                        onChange={onChange}
+                                        value={formData.gender}
+                                    />
+                                    <ProfileInput
+                                        title="Age"
+                                        name="age"
+                                        type="number"
+                                        onChange={onChange}
+                                        value={formData.age}
+                                    />
+                                    <ProfileInput
+                                        title="Username"
+                                        name="username"
+                                        type="text"
+                                        onChange={onChange}
+                                        value={formData.username}
+                                    />
+                                    <ProfileInput
+                                        title="Location"
+                                        name="location"
+                                        type="text"
+                                        onChange={onChange}
+                                        value={formData.location}
+                                    />
+                                    <ProfileTextarea
+                                        title="About me"
+                                        name="bio"
+                                        onChange={onChange}
+                                        value={formData.bio}
+                                    />
+                                    <ProfileSaveBtn/>
+                                </div>
+                                <div className="xl:ml-4 w-2/3 w-full">
+                                    <p className="welcomePageTitle text-xl">
+                                        Interests
+                                    </p>
+                                    <p className="my-2">
+                                        The selection of people will be for your
+                                        interests and hobbies, so choose carefully
+                                    </p>
 
-                                <div className="flex flex-wrap">
-                                    {interests}
+                                    <div className="flex flex-wrap">
+                                        {interests}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
