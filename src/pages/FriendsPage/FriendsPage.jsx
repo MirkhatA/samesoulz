@@ -6,7 +6,8 @@ import {
     getAllFriends,
     getAllRequests,
     getAllRequestsFromMe,
-    removeRequest
+    removeRequest,
+    rejectRequest
 } from "../../api/UserAPI.jsx";
 import NavBtn from "../../components/ui/Friends/NavBtn/NavBtn.jsx";
 import FriendBlock from "../../components/ui/Friends/FriendBlock/FriendBlock.jsx";
@@ -39,7 +40,10 @@ const FriendsPage = () => {
                     acceptRequest(user.uuid).then((res) => console.log(res.data));
                     window.location.replace("/friends");
                 }}/>,
-                <FriendButton key={"decline"} icon={<TiCancel />} />
+                <FriendButton key={"reject"} icon={<TiCancel />} onClick={() => {
+                    rejectRequest(user.uuid).then((res) => console.log(res.data));
+                    window.location.replace("/friends");
+                }}/>
             ]}
         />
     ));

@@ -109,3 +109,9 @@ export const deleteFriend = async (targetId) => {
         {},
         {headers: headers})
 }
+
+export const rejectRequest = async (targetId) => {
+    return await axios.post(`${baseUrl}/profiles/reject/request/${targetId}/to/${uuid}`,
+        {},
+        {headers: headers})
+}
