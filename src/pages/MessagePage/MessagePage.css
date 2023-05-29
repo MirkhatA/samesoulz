@@ -1,0 +1,15 @@
+.chatBlock {
+    height: 100vh;
+}
+
+.messageHeader {
+    height: 10%;
+}
+
+.messageMain {
+    height: 80%;
+}
+
+.messageFooter {
+    height: 10%;
+}

@@ -1,3 +1,5 @@
+import {toast} from "react-toastify";
+
 const uuid = localStorage.getItem("uuid");
 
 let stompClient = null;
@@ -10,11 +12,15 @@ export const connect = () => {
         console.log("Connected: " + frame);
         stompClient.subscribe(
             "/user/" + uuid + "/notifications",
-            function (messageOutput) {
-                alert(JSON.parse(messageOutput.body));
+            function () {
+                showMessageOutput();
             }
         );
     });
+}
+
+function showMessageOutput() {
+    return toast("👻 New request");
 }
 
 export const disconnect = () => {

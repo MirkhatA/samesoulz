@@ -4,6 +4,7 @@ import Navbar from "../../components/ui/Navbar/Navbar.jsx";
 import {getRecommendedUsers} from "../../api/UserAPI.jsx";
 import SuggestionCard from "../../components/ui/Suggestion/SuggestionCard/SuggestionCard.jsx";
 import {connect} from "../../api/NotificationsAPI.jsx";
+import {connectChat} from "../../api/ChatAPI.jsx";
 
 const HomePage = () => {
     const [suggestedUsers, setSuggestedUsers] = useState([]);
@@ -12,8 +13,11 @@ const HomePage = () => {
     useEffect(() => {
         try {
             // if (localStorage.getItem("isConnected") !== "true") {
-                connect();
-                // localStorage.setItem("isConnected", "true")
+            connect();
+            connectChat();
+
+
+            // localStorage.setItem("isConnected", "true")
             // }
 
             getRecommendedUsers(localStorage.getItem("username")).then((res) =>

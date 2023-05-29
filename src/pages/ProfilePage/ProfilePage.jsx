@@ -19,6 +19,7 @@ import {
 } from "../../api/UserAPI.jsx";
 import Lottie from "lottie-react";
 import CheckAnimation from "../../assets/gifs/check-green.json";
+import ProfileImageInput from "../../components/form/Profile/ProfileImageInput/ProfileImageInput.jsx";
 
 const ProfilePage = () => {
     const initialState = {
@@ -29,9 +30,10 @@ const ProfilePage = () => {
         username: "",
         location: "",
         bio: "",
-        picture: "",
         userInterests: [],
     };
+
+    const [picture, setPicture] = useState("")
 
     const [formData, setData] = useState(initialState);
     // all interests
@@ -92,13 +94,15 @@ const ProfilePage = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        ``;
 
-        // updateProfilePicture(formData.picture)
-        //     .then((res) => console.log("Update profile pic: " + res.status))
-        //     .catch((err) => console.log(err));
+        const imgData = new FormData();
+        imgData.append("picture", picture);
 
         try {
+            updateProfilePicture(imgData)
+                .then((res) => console.log("Update profile pic: " + res.status))
+                .catch((err) => console.log(err));
+
             deleteAllInterests(formData.username, pickedInterestList)
                 .then((res) =>
                     console.log("Delete all interests: " + res.status)
@@ -122,23 +126,20 @@ const ProfilePage = () => {
 
             setTimeout(() => window.location.replace("/profile"), 1000);
 
-            // location.reload();
+            location.reload();
         } catch (err) {
             console.log(err);
         }
     };
-    // lg:flex
+
+
     return (
         <div className="flex">
             <Navbar/>
 
             <div className="flex w-full justify-center">
                 <div className="lg:w-9/12 w-full">
-                    <div
-                        className={`${
-                            hideForm ? `block` : "hidden"
-                        } flex flex-col items-center justify-center`}
-                    >
+                    <div className={`${hideForm ? `block` : "hidden"} flex flex-col items-center justify-center`}>
                         <Lottie
                             className="w-52"
                             animationData={CheckAnimation}
@@ -147,25 +148,20 @@ const ProfilePage = () => {
                         />
                     </div>
 
-                    <div
-                        className={`inline-block m-10 ${
-                            hideForm ? "hidden" : "block"
-                        }`}
-                    >
+                    <div className={`inline-block m-10 ${hideForm ? "hidden" : "block"}`}>
                         <form onSubmit={onSubmit}>
                             <div className="xl:flex justify-between lg:flex-nowrap">
                                 <div className="xl:w-1/3 lg:w-full mr-2">
                                     <p className="welcomePageTitle text-xl mb-5">
                                         Profile
                                     </p>
-                                    {/*<ProfilePictureInput*/}
-                                    {/*    onChange={onChange}*/}
-                                    {/*/>*/}
-                                    <ProfileInput
+
+                                    <ProfileImageInput
                                         title="Avatar"
                                         name="picture"
-                                        type="file"
-                                        onChange={onChange}
+                                        onChange={(e) => {
+
+                                        }}
                                     />
 
                                     <ProfileInput

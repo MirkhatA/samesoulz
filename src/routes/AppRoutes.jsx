@@ -6,6 +6,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import HomePage from "../pages/HomePage/HomePage.jsx";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import FriendsPage from "../pages/FriendsPage/FriendsPage.jsx";
+import MessagePage from "../pages/MessagePage/MessagePage.jsx";
 
 const AppRoutes = () => {
     const token = localStorage.getItem("token");
@@ -26,6 +27,7 @@ const AppRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/friends" element={<FriendsPage />} />
+            <Route path="/messages" element={<MessagePage />} />
             <Route path="/*" element={<ErrorPage />} />
         </Routes>
     );
