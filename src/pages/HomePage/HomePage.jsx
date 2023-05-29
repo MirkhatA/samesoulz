@@ -40,7 +40,7 @@ const HomePage = () => {
     return (
         <div className="flex">
             <Navbar/>
-            <div className="flex w-full justify-center items-center flex-col">
+            <div className="flex w-full justify-center items-center flex-col mainSection">
                 {userList.length <= 0 &&
                     <button
                         className="border p-2 rounded border-2"
