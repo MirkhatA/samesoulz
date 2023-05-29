@@ -15,7 +15,7 @@ import InterestBtn from "../../components/form/Profile/InterestBtn/InterestBtn.j
 import {
     updateUser,
     updateProfilePicture,
-    getUserData,
+    getUserData, getProfilePicture, deleteProfilePicture,
 } from "../../api/UserAPI.jsx";
 import Lottie from "lottie-react";
 import CheckAnimation from "../../assets/gifs/check-green.json";
@@ -33,7 +33,11 @@ const ProfilePage = () => {
         userInterests: [],
     };
 
+    const uuid = localStorage.getItem("uuid");
+
     const [picture, setPicture] = useState("")
+
+    const [img, setImg] = useState("");
 
     const [formData, setData] = useState(initialState);
     // all interests
@@ -90,16 +94,21 @@ const ProfilePage = () => {
         getAll().then((res) => {
             setInterestList(res.data);
         });
+
+        getProfilePicture(uuid).then(res => setImg(URL.createObjectURL(res.data)))
     }, []);
 
     const onSubmit = (e) => {
         e.preventDefault();
 
         const imgData = new FormData();
-        imgData.append("picture", picture);
+        imgData.append('picture', picture);
+
 
         try {
-            updateProfilePicture(imgData)
+            deleteProfilePicture().then((res) => console.log("picture deleted: " + res.status));
+
+            updateProfilePicture(picture)
                 .then((res) => console.log("Update profile pic: " + res.status))
                 .catch((err) => console.log(err));
 
@@ -156,11 +165,13 @@ const ProfilePage = () => {
                                         Profile
                                     </p>
 
+                                    <img src={img} alt=""/>
+
                                     <ProfileImageInput
                                         title="Avatar"
                                         name="picture"
                                         onChange={(e) => {
-
+                                            setPicture(e.target.files[0])
                                         }}
                                     />
 

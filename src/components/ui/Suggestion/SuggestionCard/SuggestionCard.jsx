@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import SuggestionBtn from "../SuggestionBtn/SuggestionBtn.jsx";
 import {useEffect, useState} from "react";
-import {getIsRequestSent, removeRequest, sendRequestToFriend} from "../../../../api/UserAPI.jsx";
+import {getIsRequestSent, getProfilePicture, removeRequest, sendRequestToFriend} from "../../../../api/UserAPI.jsx";
 
 const SuggestionCard = (props) => {
     const {
@@ -15,13 +15,19 @@ const SuggestionCard = (props) => {
         <span key={interest.id}>{interest.name}, </span>
     );
 
+    const [img, setImg] = useState("");
+
     useEffect(() => {
         getIsRequestSent(user.uuid).then(res => setIsFriend(res.data));
+        getProfilePicture(user.uuid).then(res => setImg(URL.createObjectURL(res.data)))
     }, [user]);
 
     return (
         <div className="bg-lightGrey border-grey rounded lg:flex m-2">
-            <div className=" md:w-96 w-80 h-80">img</div>
+            <div className=" md:w-96 w-80 h-80">
+                <img src={img} className="object-cover w-full h-full rounded" alt=""/>
+            </div>
+
             <div className=" md:w-96 w-80 h-80 p-4">
                 <p className="text-2xl">
                     {user.firstName} {user.lastName}

@@ -53,10 +53,31 @@ export const updateUser = async (user) => {
 };
 
 export const updateProfilePicture = async (pic) => {
-    return await axios.post(`${baseUrl}/images/${uuid}/add/avatar`, {
-        image: pic,
-    });
+    return await axios.post(
+        `${baseUrl}/images/${uuid}/add/avatar`,
+        {
+            image: pic,
+        },
+        {
+            headers: {
+                'Content-Type': `multipart/form-data`,
+                Authorization: `Bearer ${token}`,
+            }
+        });
 };
+
+export const getProfilePicture = async (uuid) => {
+    return await axios.get(`${baseUrl}/images/avatar/${uuid}`, {
+        headers: headers,
+        responseType: "blob",
+    })
+}
+
+export const deleteProfilePicture = async () => {
+    return await axios.post(`${baseUrl}/images/remove/avatar/${uuid}`, {}, {
+        headers: headers
+    })
+}
 
 // http://localhost:8080/api/v1/images/{uuid}/add/avatar
 
