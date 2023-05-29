@@ -12,13 +12,11 @@ const HomePage = () => {
 
     useEffect(() => {
         try {
-            // if (localStorage.getItem("isConnected") !== "true") {
-            connect();
-            connectChat();
-
-
-            // localStorage.setItem("isConnected", "true")
-            // }
+            if (localStorage.getItem("isConnected") !== "true") {
+                connect();
+                connectChat();
+                localStorage.setItem("isConnected", "true")
+            }
 
             getRecommendedUsers(localStorage.getItem("username")).then((res) =>
                 setSuggestedUsers(res.data)

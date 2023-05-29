@@ -10,7 +10,7 @@ const ChatFriendButton = (props) => {
     return (
         <button
             onClick={onClick}
-            className="w-full text-start border-2 p-3 rounded bg-light border border-grey hover:bg-purple hover:border-black duration-200"
+            className="w-full text-start border-2 p-3 rounded bg-light border border-grey hover:bg-grey hover:border-black duration-200"
         >
             {firstName} {lastName}
         </button>

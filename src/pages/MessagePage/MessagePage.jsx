@@ -4,7 +4,7 @@ import {getAllFriends} from "../../api/UserAPI.jsx";
 
 import s from "./MessagePage.css";
 import ChatFriendButton from "../../components/ui/Chat/ChatFriendButton/ChatFriendButton.jsx";
-import {connectChat, getAllMessages, sendMessage} from "../../api/ChatAPI.jsx";
+import {connectChat, disconnect, getAllMessages, sendMessage} from "../../api/ChatAPI.jsx";
 import MessageBlock from "../../components/ui/Chat/MessageBlock/MessageBlock.jsx";
 import {toast, ToastContainer} from "react-toastify";
 import {BsFillSendFill} from "react-icons/bs";
@@ -25,6 +25,7 @@ const MessagePage = () => {
             firstName={user.firstName}
             lastName={user.lastName}
             onClick={() => {
+                disconnect();
                 connectChat();
                 setMessages([]);
                 setTargetUser(user);
@@ -44,7 +45,7 @@ const MessagePage = () => {
 
     return (
         <div className="flex">
-            <Navbar/>
+                        <Navbar/>
             <div className="flex w-full justify-center items-center flex-col w-9/12 p-5">
                 <div className="flex flex-nowrap border border-grey 2xl:w-2/3 w-full bg-lightGrey h-2/3 rounded-lg">
                     <div className="w-1/4 mt-2 mx-1 overflow-auto">

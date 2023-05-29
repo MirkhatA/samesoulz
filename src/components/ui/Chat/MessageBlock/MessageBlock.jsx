@@ -16,7 +16,7 @@ const MessageBlock = (props) => {
     );
 
     return (
-        <div>
+        <div className="h-14">
             {messageList}
         </div>
     );
