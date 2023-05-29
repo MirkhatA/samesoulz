@@ -1,0 +1,25 @@
+.avatar {
+    margin: 50px;
+    width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    transform: translatey(0px);
+    animation: float 2s ease-in-out infinite;
+}
+
+.avatar img {
+    width: 100%;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}

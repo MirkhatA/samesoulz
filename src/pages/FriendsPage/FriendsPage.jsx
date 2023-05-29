@@ -53,7 +53,7 @@ const FriendsPage = () => {
             key={user.id}
             user={user}
             buttons={[
-                <FriendButton key={"chat"} icon={<HiOutlineChatAlt />}/>,
+                // <FriendButton key={"chat"} icon={<HiOutlineChatAlt />}/>,
                 <FriendButton key={"delete"} icon={<FaUserAltSlash />} onClick={() => {
                     deleteFriend(user.uuid).then((res) => console.log(res.data));
                     window.location.replace("/friends");

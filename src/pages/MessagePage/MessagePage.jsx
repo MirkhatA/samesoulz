@@ -6,7 +6,6 @@ import s from "./MessagePage.css";
 import ChatFriendButton from "../../components/ui/Chat/ChatFriendButton/ChatFriendButton.jsx";
 import {connectChat, disconnect, getAllMessages, sendMessage} from "../../api/ChatAPI.jsx";
 import MessageBlock from "../../components/ui/Chat/MessageBlock/MessageBlock.jsx";
-import {toast, ToastContainer} from "react-toastify";
 import {BsFillSendFill} from "react-icons/bs";
 
 const MessagePage = () => {
@@ -45,7 +44,7 @@ const MessagePage = () => {
 
     return (
         <div className="flex">
-                        <Navbar/>
+            <Navbar/>
             <div className="flex w-full justify-center items-center flex-col w-9/12 p-5">
                 <div className="flex flex-nowrap border border-grey 2xl:w-2/3 w-full bg-lightGrey h-2/3 rounded-lg">
                     <div className="w-1/4 mt-2 mx-1 overflow-auto">
@@ -70,7 +69,9 @@ const MessagePage = () => {
                                         id="text"
                                         placeholder="message"
                                         className="w-full m-1 outline-0"
-                                        onChange={e => setSenderMsg(e.target.value)}
+                                        autoComplete="off"
+                                        onChange={e => setSenderMsg(e.target.value)
+                                        }
                                     />
                                     <button className="text-xl p-2 m-2" onClick={onSubmit}><BsFillSendFill/></button>
                                 </label>

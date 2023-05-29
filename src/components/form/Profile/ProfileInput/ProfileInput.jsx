@@ -18,6 +18,7 @@ const ProfileInput = (props) => {
                 type={type}
                 onChange={onChange}
                 value={value}
+                required
             />
         </label>
     );
@@ -28,7 +29,7 @@ ProfileInput.propTypes = {
     type: PropTypes.string,
     onChange: PropTypes.func,
     name: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.string,
 }
 
 export default ProfileInput;

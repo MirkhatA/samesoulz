@@ -7,6 +7,7 @@ import { CgLogOut } from "react-icons/cg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {disconnect} from "../../../api/NotificationsAPI.jsx";
+import {BsQuestionLg} from "react-icons/bs";
 
 const Navbar = () => {
     const leave = () => {
@@ -42,6 +43,13 @@ const Navbar = () => {
                 <SideBarIcon
                     icon={<BiMessageAltDetail size="22" />}
                     text="Messages"
+                />
+            </Link>
+
+            <Link to="/feedback">
+                <SideBarIcon
+                    icon={<BsQuestionLg size="22" />}
+                    text="Feedback"
                 />
             </Link>
 

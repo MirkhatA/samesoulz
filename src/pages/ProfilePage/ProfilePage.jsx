@@ -104,13 +104,14 @@ const ProfilePage = () => {
         const imgData = new FormData();
         imgData.append('picture', picture);
 
-
         try {
-            deleteProfilePicture().then((res) => console.log("picture deleted: " + res.status));
+            if (picture !== "") {
+                deleteProfilePicture().then((res) => console.log("picture deleted: " + res.status));
 
-            updateProfilePicture(picture)
-                .then((res) => console.log("Update profile pic: " + res.status))
-                .catch((err) => console.log(err));
+                updateProfilePicture(picture)
+                    .then((res) => console.log("Update profile pic: " + res.status))
+                    .catch((err) => console.log(err));
+            }
 
             deleteAllInterests(formData.username, pickedInterestList)
                 .then((res) =>
@@ -189,12 +190,6 @@ const ProfilePage = () => {
                                         onChange={onChange}
                                         value={formData.lastName}
                                     />
-                                    <ProfileRadio
-                                        title="Gender"
-                                        name="gender"
-                                        onChange={onChange}
-                                        value={formData.gender}
-                                    />
                                     <ProfileInput
                                         title="Age"
                                         name="age"
@@ -222,7 +217,7 @@ const ProfilePage = () => {
                                         onChange={onChange}
                                         value={formData.bio}
                                     />
-                                    <ProfileSaveBtn/>
+                                    <ProfileSaveBtn value="Save"/>
                                 </div>
                                 <div className="xl:ml-4 w-2/3 w-full">
                                     <p className="welcomePageTitle text-xl">

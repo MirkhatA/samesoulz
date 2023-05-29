@@ -21,7 +21,7 @@ const ProfileRadio = (props) => {
                 name="gender"
                 className="mr-1"
                 onChange={onChange}
-                checked
+                checked={checked}
             />
             Male
             <input

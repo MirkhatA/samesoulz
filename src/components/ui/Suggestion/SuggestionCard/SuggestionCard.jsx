@@ -37,7 +37,7 @@ const SuggestionCard = (props) => {
                 <p className="flex">
                     <span className="pr-2">{user.age}y/o</span>
                     <span className="pr-2">{user.location}</span>
-                    <span className="pr-2">{user.gender}</span>
+                    {/*<span className="pr-2">{user.gender}</span>*/}
                 </p>
                 <br/>
                 <p>{user.bio}</p>
